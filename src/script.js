@@ -7,8 +7,6 @@ const cards = Array.from(document.querySelectorAll('.project-cards'));
 const navButtons = document.querySelectorAll(".nav-bar a");
 const navText = document.querySelectorAll(".nav-bar a h2");
 
-console.log(navButtons);
-console.log(navText);
 
 const totalcards = cards.length;
 const middleIndex = Math.floor(totalcards / 2);

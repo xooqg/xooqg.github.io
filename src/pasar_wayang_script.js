@@ -87,6 +87,7 @@ function animateCard() {
                         ease: "power3.inOut",
                     });
                     page.style.opacity = "1";
+
                     gsap.utils.toArray('.fade-in img').forEach((el) => {
                         gsap.to(el, {
                             scrollTrigger: {

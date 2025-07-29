@@ -21,11 +21,6 @@ body
     user-select: none;
     font-family: 'HelveticaNeueThin', sans-serif;
 }
-.page
-{
-    opacity:0;
-    transition: 3s;
-}
 
 html {
     scrollbar-width: none;
