@@ -44,7 +44,7 @@ html::-webkit-scrollbar {
     display:flex;
     flex-direction: row;
     gap: 0.1vw;
-
+    z-index: 4;
 }
 
 .nav-bar a {
@@ -52,7 +52,9 @@ html::-webkit-scrollbar {
     text-decoration: none;
 }
 
-
+.nav-bar a:hover {
+    cursor: pointer;
+}
 
 .nav-button
 {
@@ -111,15 +113,19 @@ html::-webkit-scrollbar {
     display:flex;
     height: 50vh;
     align-items: center;
-
+    justify-content: center;
 }
 
-.description
+.title
 {
-    font-size:0.8vw;
+    font-size:5vw;
     max-width: 50vw;
     padding-left: 3vw;
+    font-weight:400;
+    
 }
+
+
 
 .project-images 
 {
@@ -132,7 +138,7 @@ html::-webkit-scrollbar {
 {
     opacity: 0;
     width:100%;
-    height:auto;
+    height:100%;
 }
 
 .img-header
@@ -140,4 +146,51 @@ html::-webkit-scrollbar {
     grid-column: span 2;
     width: 100%;
     height: auto;
+}
+
+#contact-page {
+    pointer-events: none;
+    opacity: 0;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 1s;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 0.3vw;
+}
+
+#contact-page a {
+    pointer-events: auto;
+    background-color: rgba(128, 128, 128, 0.4);
+    text-decoration: none;
+    color: black;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+#contact-page a:hover {
+    cursor: pointer;
+}
+.page {
+    transition: 1s;
+}
+
+.blur {
+    transition: 1s;
+    pointer-events: none;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
 }

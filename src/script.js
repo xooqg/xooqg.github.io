@@ -27,7 +27,44 @@ let selectedProjectName = "";
 
 var cardHovered = false;
 
-const label = document.getElementById("cursor-label");
+
+//Contact Page
+const contact_page = document.querySelector("#contact-page")
+const page = document.querySelector(".page")
+const contact_button = document.querySelector(".contact-button");
+const contact_buttons = document.querySelector(".contact-buttons");
+if (contact_page)
+{
+  contact_page.addEventListener("click", closeContactPage);
+}
+
+
+if (contact_button)
+{
+  
+  contact_button.addEventListener("click", openContactPage);
+}
+
+function openContactPage() {
+  contact_page.style.opacity = "1";
+  contact_page.style.pointerEvents = "all";
+
+  page.classList.add("blur");
+}
+
+function closeContactPage(e) {
+  if (contact_buttons && contact_buttons.contains(e.target)) {
+    return;
+  }
+  contact_page.style.pointerEvents = "none";
+
+  console.log("Clicked outside contact-buttons – closing");
+  contact_page.style.opacity = "0";
+  page.classList.remove("blur");
+}
+//Contact Page
+
+
 let mouseX = 0;
 let mouseY = 0;
 
@@ -94,6 +131,8 @@ function initializeCards()
     let offset = i - middleIndex;
 
     cards[i].style.zIndex = totalcards - Math.abs(offset);
+    
+    console.log(i + ":" + cards[i].style.zIndex);
 
     let tx = offset * cardShiftXMult;
     let ty = offset * -cardShiftYMult
@@ -103,7 +142,7 @@ function initializeCards()
     gsap.to(cards[i],
       {
         duration: 0.3,
-      opacity:1
+        opacity: 0.9,
     })
 
     cardTranslateXList[i] = tx;
@@ -216,23 +255,6 @@ function OnScrollDownCards() {
 
 }
 
-function updateLabel() {
-  if (!cardHovered) {
-    label.style.opacity = 0;
-    label.textContent = "";
-  }
-  else
-  {
-    label.style.opacity = 1;
-    label.textContent = selectedProjectName;
-  }
-
-  label.style.left = `${mouseX}px`;
-  label.style.top = `${mouseY}px`;
-  requestAnimationFrame(updateLabel);
-}
-
-updateLabel();
 
 function animateCardTo(index, tx, ty, duration = 0.3) {
   gsap.to(cards[index], {

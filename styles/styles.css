@@ -27,12 +27,13 @@ body
 
 .nav-bar
 {
+    position: absolute;
     padding-top: 0.1vw;
     padding-left: 0.1vw;
     display:flex;
     flex-direction: row;
     gap: 0.1vw;
-
+    z-index: 4;
 }
 
 .nav-button
@@ -69,6 +70,7 @@ body
     text-decoration: none;
 }
 
+
 .nav-bar h2
 {
     padding-left: 0.4vw;
@@ -93,25 +95,22 @@ body
 
 .project-cards
 {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
     
     position: absolute;
     transform-origin: center ;
-    border: 2px solid transparent;
-    border-color: rgba(0, 0, 0, 0.2);
     opacity: 0;
     align-self: center;
     transition: 0.3s;
     height:25vh;
     width:25vw;
     transform-style: preserve-3d;
-    
-    -webkit-filter: brightness(110%) contrast(110%);
-        filter: brightness(110%) contrast(110%);
+    -webkit-filter: brightness(110%) contrast(100%);
+    filter: brightness(110%) contrast(100%);
 }
 
 #cursor-label {
     position: fixed;
-    pointer-events: none;
     background: transparent;
     color: black;
     padding: 4px 8px;
@@ -124,9 +123,69 @@ body
 
 .project-cards:hover
 {
+    transition: 1s;
     cursor:pointer;
 }
 
 .fade-in {
     opacity: 1; 
 }
+
+.nav-bar a :hover {
+    
+    cursor: pointer;
+}
+
+.page {
+    transition: 1s;
+}
+
+.blur
+{
+    transition: 1s;
+    pointer-events: none;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+
+#contact-page 
+{
+    pointer-events: none;
+    opacity: 0;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition:1s;
+}
+
+.contact-buttons
+{
+    display:flex;
+    gap:0.3vw;
+}
+
+#contact-page a
+{
+    pointer-events: auto;
+    background-color: rgba(128, 128, 128, 0.4);
+    text-decoration: none;
+    color:black;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+#contact-page a:hover
+{
+    cursor: pointer;
+}
+

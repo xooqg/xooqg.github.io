@@ -1,8 +1,43 @@
 const params = new URLSearchParams(window.location.search);
 const img = document.querySelector(".starting_img");
-const page = document.querySelector(".page")
 console.log(img);
 const colorThief = new ColorThief();
+
+
+//Contact Page
+const contact_page = document.querySelector("#contact-page")
+const page = document.querySelector(".page")
+const contact_button = document.querySelector(".contact-button");
+const contact_buttons = document.querySelector(".contact-buttons");
+if (contact_page) {
+    contact_page.addEventListener("click", closeContactPage);
+}
+
+
+if (contact_button) {
+
+    contact_button.addEventListener("click", openContactPage);
+}
+
+function openContactPage() {
+    contact_page.style.opacity = "1";
+    contact_page.style.pointerEvents = "all";
+
+    page.classList.add("blur");
+}
+
+function closeContactPage(e) {
+    if (contact_buttons && contact_buttons.contains(e.target)) {
+        return;
+    }
+    contact_page.style.pointerEvents = "none";
+
+    console.log("Clicked outside contact-buttons – closing");
+    contact_page.style.opacity = "0";
+    page.classList.remove("blur");
+}
+//Contact Page
+
 
 const navButtons = document.querySelectorAll(".nav-bar a");
 const navText = document.querySelectorAll(".nav-bar a h2");
@@ -40,10 +75,12 @@ function openCard() {
     img.alt = "cardImage";
     img.style.border = "2px solid transparent"
     let image = new Image();
+    img.style.filter = "brightness(110 %) contrast(100 %)";
 
 
 
     gsap.set(img, {
+        opacity: 0.9,
         borderColor: "rgba(0, 0, 0, 0.2)",
         position: 'absolute',
         height: '25vh',
