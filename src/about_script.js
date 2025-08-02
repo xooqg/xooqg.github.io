@@ -26,6 +26,7 @@ if (contact_button) {
 }
 
 function openContactPage() {
+    contact_page.style.display = "flex";
     contact_page.style.opacity = "1";
     contact_page.style.pointerEvents = "all";
 
@@ -40,6 +41,7 @@ function closeContactPage(e) {
 
     console.log("Clicked outside contact-buttons – closing");
     contact_page.style.opacity = "0";
+    contact_page.style.display = "none";
     page.classList.remove("blur");
 }
 

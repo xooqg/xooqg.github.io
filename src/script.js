@@ -46,8 +46,9 @@ if (contact_button)
 }
 
 function openContactPage() {
-  contact_page.style.opacity = "1";
+  contact_page.style.display = "flex";
   contact_page.style.pointerEvents = "all";
+  contact_page.style.opacity = "1";
 
   page.classList.add("blur");
 }
@@ -57,9 +58,10 @@ function closeContactPage(e) {
     return;
   }
   contact_page.style.pointerEvents = "none";
+  contact_page.style.opacity = "0";
 
   console.log("Clicked outside contact-buttons – closing");
-  contact_page.style.opacity = "0";
+  contact_page.style.display = "none";
   page.classList.remove("blur");
 }
 //Contact Page
@@ -135,7 +137,7 @@ function initializeCards()
     console.log(i + ":" + cards[i].style.zIndex);
 
     let tx = offset * cardShiftXMult;
-    let ty = offset * -cardShiftYMult
+    let ty = offset * -cardShiftYMult + 4;
 
     cards[i].style.zIndex = cards.length - i;
     animateCardTo(i, tx, ty, 0);
