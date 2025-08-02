@@ -80,7 +80,6 @@ function openCard() {
 
     gsap.set(img, {
         opacity: 0.9,
-        borderColor: "rgba(0, 0, 0, 0.2)",
         position: 'absolute',
         height: '25vh',
         width: '25vw',

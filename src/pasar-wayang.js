@@ -80,7 +80,6 @@ function openCard() {
 
     gsap.set(img, {
         opacity: 0.9,
-        borderColor: "rgba(0, 0, 0, 0.2)",
         position: 'absolute',
         height: '25vh',
         width: '25vw',
@@ -123,7 +122,7 @@ function animateCard() {
                         ease: "power3.inOut",
                     });
                     page.style.opacity = "1";
-                    gsap.utils.toArray('.fade-in img').forEach((el) => {
+                    gsap.utils.toArray('.fade-in img, iframe').forEach((el) => {
                         gsap.to(el, {
                             scrollTrigger: {
                                 trigger: el,

@@ -139,6 +139,13 @@ html::-webkit-scrollbar {
     height:100%;
 }
 
+.project-images iframe {
+    opacity: 0;
+    max-width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+}
+
 .img-header
 {
     grid-column: span 2;
